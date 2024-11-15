@@ -1,4 +1,4 @@
-image: ghcr.io/home-assistant/{arch}-hassio-supervisor
+image: ghcr.io/tiyicn123/{arch}-hassio-supervisor
 build_from:
   aarch64: ghcr.io/home-assistant/aarch64-base-python:3.12-alpine3.20
   armhf: ghcr.io/home-assistant/armhf-base-python:3.12-alpine3.20
@@ -10,14 +10,14 @@ codenotary:
   base_image: notary@home-assistant.io
 cosign:
   base_identity: https://github.com/home-assistant/docker-base/.*
-  identity: https://github.com/home-assistant/supervisor/.*
+  identity: https://github.com/tiyicn123/supervisor/.*
 args:
   COSIGN_VERSION: 2.2.3
 labels:
   io.hass.type: supervisor
   org.opencontainers.image.title: Home Assistant Supervisor
   org.opencontainers.image.description: Container-based system for managing Home Assistant Core installation
-  org.opencontainers.image.source: https://github.com/home-assistant/supervisor
+  org.opencontainers.image.source: https://github.com/tiyicn123/supervisor
   org.opencontainers.image.authors: The Home Assistant Authors
   org.opencontainers.image.url: https://www.home-assistant.io/
   org.opencontainers.image.documentation: https://www.home-assistant.io/docs/
