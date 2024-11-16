@@ -36,6 +36,7 @@ env:
   DEFAULT_PYTHON: "3.12"
   BUILD_NAME: supervisor
   BUILD_TYPE: supervisor
+  REPLACE_GHCR: "ghcr.nju.edu.cn"
 
 concurrency:
   group: "${{ github.workflow }}-${{ github.ref }}"
