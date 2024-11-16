@@ -66,6 +66,7 @@ jobs:
         uses: tiyicn123/actions/helpers/version@master
         with:
           type: ${{ env.BUILD_TYPE }}
+          source: ${{ secrets.GIT_NAME }}
 
       - name: Get changed files
         id: changed_files
