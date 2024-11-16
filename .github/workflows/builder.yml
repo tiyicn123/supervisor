@@ -67,7 +67,6 @@ jobs:
         uses: tiyicn123/actions/helpers/version@master
         with:
           type: ${{ env.BUILD_TYPE }}
-          source: ${{ env.REPLACE_GHCR }}
 
       - name: Get changed files
         id: changed_files
