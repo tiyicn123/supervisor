@@ -1,11 +1,11 @@
 """Init file for Supervisor RESTful API."""
+
 from functools import partial
 import logging
 from pathlib import Path
 from typing import Any
 
 from aiohttp import web
-from aiohttp_fast_url_dispatcher import FastUrlDispatcher, attach_fast_url_dispatcher
 
 from ..const import AddonState
 from ..coresys import CoreSys, CoreSysAttributes
@@ -67,7 +67,6 @@ class RestAPI(CoreSysAttributes):
                 "max_field_size": MAX_LINE_SIZE,
             },
         )
-        attach_fast_url_dispatcher(self.webapp, FastUrlDispatcher())
 
         # service stuff
         self._runner: web.AppRunner = web.AppRunner(self.webapp, shutdown_timeout=5)
@@ -510,6 +509,7 @@ class RestAPI(CoreSysAttributes):
                 web.post("/addons/{addon}/stop", api_addons.stop),
                 web.post("/addons/{addon}/restart", api_addons.restart),
                 web.post("/addons/{addon}/options", api_addons.options),
+                web.post("/addons/{addon}/sys_options", api_addons.sys_options),
                 web.post(
                     "/addons/{addon}/options/validate", api_addons.options_validate
                 ),

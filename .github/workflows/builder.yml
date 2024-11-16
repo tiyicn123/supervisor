@@ -126,15 +126,15 @@ jobs:
 
       - name: Set up Python ${{ env.DEFAULT_PYTHON }}
         if: needs.init.outputs.publish == 'true'
-        uses: actions/setup-python@v5.1.1
+        uses: actions/setup-python@v5.2.0
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
 
       - name: Install Cosign
         if: needs.init.outputs.publish == 'true'
-        uses: sigstore/cosign-installer@v3.5.0
+        uses: sigstore/cosign-installer@v3.6.0
         with:
-          cosign-release: "v2.2.3"
+          cosign-release: "v2.4.0"
 
       - name: Install dirhash and calc hash
         if: needs.init.outputs.publish == 'true'
@@ -161,7 +161,7 @@ jobs:
         run: echo "BUILD_ARGS=--test" >> $GITHUB_ENV
 
       - name: Build supervisor
-        uses: home-assistant/builder@2024.03.5
+        uses: home-assistant/builder@2024.08.2
         with:
           args: |
             $BUILD_ARGS \
@@ -208,7 +208,7 @@ jobs:
 
       - name: Build the Supervisor
         if: needs.init.outputs.publish != 'true'
-        uses: home-assistant/builder@2024.03.5
+        uses: home-assistant/builder@2024.08.2
         with:
           args: |
             --test \

@@ -1,4 +1,5 @@
 """D-Bus interface objects."""
+
 import asyncio
 import logging
 
@@ -128,9 +129,11 @@ class DBusManager(CoreSysAttributes):
 
         for err in errors:
             if err:
+                dbus = self.all[errors.index(err)]
                 _LOGGER.warning(
-                    "Can't load dbus interface %s: %s",
-                    self.all[errors.index(err)].name,
+                    "Can't load dbus interface %s %s: %s",
+                    dbus.name,
+                    dbus.object_path,
                     err,
                 )
 
